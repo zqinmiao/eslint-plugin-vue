@@ -147,9 +147,86 @@ declare global {
   type ExportSpecifier = VAST.ExportSpecifier
   type ImportExpression = VAST.ImportExpression
 
+  // ---- ESNext Nodes ----
+
+  type Decorator = VAST.Decorator
+  type ClassProperty = VAST.ClassProperty
+
   // ---- TS Nodes ----
 
+  type TSAbstractClassProperty = VAST.TSAbstractClassProperty
+  type TSAbstractKeyword = VAST.TSAbstractKeyword
+  type TSAbstractMethodDefinition = VAST.TSAbstractMethodDefinition
+  type TSAnyKeyword = VAST.TSAnyKeyword
+  type TSArrayType = VAST.TSArrayType
   type TSAsExpression = VAST.TSAsExpression
+  type TSAsyncKeyword = VAST.TSAsyncKeyword
+  type TSBigIntKeyword = VAST.TSBigIntKeyword
+  type TSBooleanKeyword = VAST.TSBooleanKeyword
+  type TSCallSignatureDeclaration = VAST.TSCallSignatureDeclaration
+  type TSClassImplements = VAST.TSClassImplements
+  type TSConditionalType = VAST.TSConditionalType
+  type TSConstructorType = VAST.TSConstructorType
+  type TSConstructSignatureDeclaration = VAST.TSConstructSignatureDeclaration
+  type TSDeclareFunction = VAST.TSDeclareFunction
+  type TSDeclareKeyword = VAST.TSDeclareKeyword
+  type TSEmptyBodyFunctionExpression = VAST.TSEmptyBodyFunctionExpression
+  type TSEnumDeclaration = VAST.TSEnumDeclaration
+  type TSEnumMember = VAST.TSEnumMember
+  type TSExportAssignment = VAST.TSExportAssignment
+  type TSExportKeyword = VAST.TSExportKeyword
+  type TSExternalModuleReference = VAST.TSExternalModuleReference
+  type TSFunctionType = VAST.TSFunctionType
+  type TSImportEqualsDeclaration = VAST.TSImportEqualsDeclaration
+  type TSImportType = VAST.TSImportType
+  type TSIndexedAccessType = VAST.TSIndexedAccessType
+  type TSIndexSignature = VAST.TSIndexSignature
+  type TSInferType = VAST.TSInferType
+  type TSInterfaceDeclaration = VAST.TSInterfaceDeclaration
+  type TSInterfaceBody = VAST.TSInterfaceBody
+  type TSInterfaceHeritage = VAST.TSInterfaceHeritage
+  type TSIntersectionType = VAST.TSIntersectionType
+  type TSLiteralType = VAST.TSLiteralType
+  type TSMappedType = VAST.TSMappedType
+  type TSMethodSignature = VAST.TSMethodSignature
+  type TSModuleBlock = VAST.TSModuleBlock
+  type TSModuleDeclaration = VAST.TSModuleDeclaration
+  type TSNamespaceExportDeclaration = VAST.TSNamespaceExportDeclaration
+  type TSNeverKeyword = VAST.TSNeverKeyword
+  type TSNonNullExpression = VAST.TSNonNullExpression
+  type TSNullKeyword = VAST.TSNullKeyword
+  type TSNumberKeyword = VAST.TSNumberKeyword
+  type TSObjectKeyword = VAST.TSObjectKeyword
+  type TSOptionalType = VAST.TSOptionalType
+  type TSParameterProperty = VAST.TSParameterProperty
+  type TSParenthesizedType = VAST.TSParenthesizedType
+  type TSPropertySignature = VAST.TSPropertySignature
+  type TSPublicKeyword = VAST.TSPublicKeyword
+  type TSPrivateKeyword = VAST.TSPrivateKeyword
+  type TSProtectedKeyword = VAST.TSProtectedKeyword
+  type TSQualifiedName = VAST.TSQualifiedName
+  type TSReadonlyKeyword = VAST.TSReadonlyKeyword
+  type TSRestType = VAST.TSRestType
+  type TSStaticKeyword = VAST.TSStaticKeyword
+  type TSStringKeyword = VAST.TSStringKeyword
+  type TSSymbolKeyword = VAST.TSSymbolKeyword
+  type TSThisType = VAST.TSThisType
+  type TSTupleType = VAST.TSTupleType
+  type TSTypeAliasDeclaration = VAST.TSTypeAliasDeclaration
+  type TSTypeAnnotation = VAST.TSTypeAnnotation
+  type TSTypeAssertion = VAST.TSTypeAssertion
+  type TSTypeLiteral = VAST.TSTypeLiteral
+  type TSTypeOperator = VAST.TSTypeOperator
+  type TSTypeParameter = VAST.TSTypeParameter
+  type TSTypeParameterDeclaration = VAST.TSTypeParameterDeclaration
+  type TSTypeParameterInstantiation = VAST.TSTypeParameterInstantiation
+  type TSTypePredicate = VAST.TSTypePredicate
+  type TSTypeQuery = VAST.TSTypeQuery
+  type TSTypeReference = VAST.TSTypeReference
+  type TSUndefinedKeyword = VAST.TSUndefinedKeyword
+  type TSUnionType = VAST.TSUnionType
+  type TSUnknownKeyword = VAST.TSUnknownKeyword
+  type TSVoidKeyword = VAST.TSVoidKeyword
 
   // ---- JSX Nodes ----
 

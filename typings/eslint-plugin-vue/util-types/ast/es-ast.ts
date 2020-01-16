@@ -7,6 +7,7 @@ import { ParseError } from '../errors'
 import * as V from './v-ast'
 import * as TS from './ts-ast'
 import * as JSX from './jsx-ast'
+import * as NEXT from './esnext-ast'
 
 export type ESNode =
   | Identifier
@@ -163,9 +164,12 @@ export interface FunctionDeclaration extends HasParentNode {
   type: 'FunctionDeclaration'
   async: boolean
   generator: boolean
-  id: Identifier | null
+  id: Identifier
   params: _FunctionParameter[]
   body: BlockStatement
+
+  //ts
+  returnType: TS.TSTypeAnnotation | null
 }
 export interface VariableDeclaration extends HasParentNode {
   type: 'VariableDeclaration'
@@ -182,6 +186,13 @@ export interface ClassDeclaration extends HasParentNode {
   id: Identifier | null
   superClass: Expression | null
   body: ClassBody
+
+  // esnext
+  decorators: NEXT.Decorator[]
+  //ts
+  typeParameters?: TS.TSTypeParameterDeclaration
+  superTypeParameters?: TS.TSTypeParameterInstantiation
+  implements?: TS.TSClassImplements[]
 }
 export interface ClassBody extends HasParentNode {
   type: 'ClassBody'
@@ -194,6 +205,9 @@ export interface MethodDefinition extends HasParentNode {
   static: boolean
   key: Expression
   value: FunctionExpression
+
+  // esnext
+  decorators: NEXT.Decorator[]
 }
 export type ModuleDeclaration =
   | ImportDeclaration
@@ -283,6 +297,9 @@ export type Expression =
 export interface Identifier extends HasParentNode {
   type: 'Identifier'
   name: string
+
+  // ts
+  typeAnnotation: TS.TSTypeAnnotation | null
 }
 export interface Literal extends HasParentNode {
   type: 'Literal'
@@ -313,6 +330,9 @@ export interface Property extends HasParentNode {
   key: Expression
   value: Expression
   parent: ObjectExpression
+
+  // esnext
+  decorators: NEXT.Decorator[]
 }
 export interface FunctionExpression extends HasParentNode {
   type: 'FunctionExpression'
@@ -321,6 +341,9 @@ export interface FunctionExpression extends HasParentNode {
   id: Identifier | null
   params: _FunctionParameter[]
   body: BlockStatement
+
+  //ts
+  returnType: TS.TSTypeAnnotation | null
 }
 
 interface ArrowFunctionExpressionHasBlock extends HasParentNode {
@@ -331,6 +354,9 @@ interface ArrowFunctionExpressionHasBlock extends HasParentNode {
   params: _FunctionParameter[]
   body: BlockStatement
   expression: false
+
+  //ts
+  returnType: TS.TSTypeAnnotation | null
 }
 
 interface ArrowFunctionExpressionNoBlock extends HasParentNode {
@@ -341,6 +367,9 @@ interface ArrowFunctionExpressionNoBlock extends HasParentNode {
   params: _FunctionParameter[]
   body: Expression
   expression: true
+
+  //ts
+  returnType: TS.TSTypeAnnotation | null
 }
 
 export type ArrowFunctionExpression =
@@ -481,6 +510,13 @@ export interface ClassExpression extends HasParentNode {
   id: Identifier | null
   superClass: Expression | null
   body: ClassBody
+
+  // esnext
+  decorators: NEXT.Decorator[]
+  //ts
+  typeParameters?: TS.TSTypeParameterDeclaration
+  superTypeParameters?: TS.TSTypeParameterInstantiation
+  implements?: TS.TSClassImplements[]
 }
 export interface MetaProperty extends HasParentNode {
   type: 'MetaProperty'
@@ -497,6 +533,9 @@ export type Pattern =
 export interface ObjectPattern extends HasParentNode {
   type: 'ObjectPattern'
   properties: (AssignmentProperty | RestElement)[]
+
+  // ts
+  typeAnnotation: TS.TSTypeAnnotation | null
 }
 export interface AssignmentProperty extends HasParentNode {
   type: 'Property'
@@ -511,10 +550,16 @@ export interface AssignmentProperty extends HasParentNode {
 export interface ArrayPattern extends HasParentNode {
   type: 'ArrayPattern'
   elements: Pattern[]
+
+  // ts
+  typeAnnotation: TS.TSTypeAnnotation | null
 }
 export interface RestElement extends HasParentNode {
   type: 'RestElement'
   argument: Pattern
+
+  // ts
+  typeAnnotation: TS.TSTypeAnnotation | null
 }
 export interface SpreadElement extends HasParentNode {
   type: 'SpreadElement'
@@ -532,4 +577,4 @@ export type _FunctionParameter =
   | ArrayPattern
   | ObjectPattern
   | Identifier
-// | TSParameterProperty;
+// | TS.TSParameterProperty

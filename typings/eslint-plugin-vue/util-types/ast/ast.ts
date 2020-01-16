@@ -2,8 +2,14 @@ import * as ES from './es-ast'
 import * as V from './v-ast'
 import * as TS from './ts-ast'
 import * as JSX from './jsx-ast'
+import * as NEXT from './esnext-ast'
 
-export type ASTNode = ES.ESNode | V.VNode | TS.TSNode | JSX.JSXNode
+export type ASTNode =
+  | ES.ESNode
+  | V.VNode
+  | TS.TSNode
+  | JSX.JSXNode
+  | NEXT.ESNEXTNode
 
 export type ParamNode = never // You specify the node type in JSDoc.
 
@@ -264,6 +270,150 @@ export type ESNodeListenerMap = {
   ChainExpression: ES.ChainExpression
   'ChainExpression:exit': ES.ChainExpression
 
+  TSAbstractClassProperty: TS.TSAbstractClassProperty
+  'TSAbstractClassProperty:exit': TS.TSAbstractClassProperty
+  TSAbstractKeyword: TS.TSAbstractKeyword
+  'TSAbstractKeyword:exit': TS.TSAbstractKeyword
+  TSAbstractMethodDefinition: TS.TSAbstractMethodDefinition
+  'TSAbstractMethodDefinition:exit': TS.TSAbstractMethodDefinition
+  TSAnyKeyword: TS.TSAnyKeyword
+  'TSAnyKeyword:exit': TS.TSAnyKeyword
+  TSArrayType: TS.TSArrayType
+  'TSArrayType:exit': TS.TSArrayType
   TSAsExpression: TS.TSAsExpression
   'TSAsExpression:exit': TS.TSAsExpression
+  TSAsyncKeyword: TS.TSAsyncKeyword
+  'TSAsyncKeyword:exit': TS.TSAsyncKeyword
+  TSBigIntKeyword: TS.TSBigIntKeyword
+  'TSBigIntKeyword:exit': TS.TSBigIntKeyword
+  TSBooleanKeyword: TS.TSBooleanKeyword
+  'TSBooleanKeyword:exit': TS.TSBooleanKeyword
+  TSCallSignatureDeclaration: TS.TSCallSignatureDeclaration
+  'TSCallSignatureDeclaration:exit': TS.TSCallSignatureDeclaration
+  TSClassImplements: TS.TSClassImplements
+  'TSClassImplements:exit': TS.TSClassImplements
+  TSConditionalType: TS.TSConditionalType
+  'TSConditionalType:exit': TS.TSConditionalType
+  TSConstructorType: TS.TSConstructorType
+  'TSConstructorType:exit': TS.TSConstructorType
+  TSConstructSignatureDeclaration: TS.TSConstructSignatureDeclaration
+  'TSConstructSignatureDeclaration:exit': TS.TSConstructSignatureDeclaration
+  TSDeclareFunction: TS.TSDeclareFunction
+  'TSDeclareFunction:exit': TS.TSDeclareFunction
+  TSDeclareKeyword: TS.TSDeclareKeyword
+  'TSDeclareKeyword:exit': TS.TSDeclareKeyword
+  TSEmptyBodyFunctionExpression: TS.TSEmptyBodyFunctionExpression
+  'TSEmptyBodyFunctionExpression:exit': TS.TSEmptyBodyFunctionExpression
+  TSEnumDeclaration: TS.TSEnumDeclaration
+  'TSEnumDeclaration:exit': TS.TSEnumDeclaration
+  TSEnumMember: TS.TSEnumMember
+  'TSEnumMember:exit': TS.TSEnumMember
+  TSExportAssignment: TS.TSExportAssignment
+  'TSExportAssignment:exit': TS.TSExportAssignment
+  TSExportKeyword: TS.TSExportKeyword
+  'TSExportKeyword:exit': TS.TSExportKeyword
+  TSExternalModuleReference: TS.TSExternalModuleReference
+  'TSExternalModuleReference:exit': TS.TSExternalModuleReference
+  TSFunctionType: TS.TSFunctionType
+  'TSFunctionType:exit': TS.TSFunctionType
+  TSImportEqualsDeclaration: TS.TSImportEqualsDeclaration
+  'TSImportEqualsDeclaration:exit': TS.TSImportEqualsDeclaration
+  TSImportType: TS.TSImportType
+  'TSImportType:exit': TS.TSImportType
+  TSIndexedAccessType: TS.TSIndexedAccessType
+  'TSIndexedAccessType:exit': TS.TSIndexedAccessType
+  TSIndexSignature: TS.TSIndexSignature
+  'TSIndexSignature:exit': TS.TSIndexSignature
+  TSInferType: TS.TSInferType
+  'TSInferType:exit': TS.TSInferType
+  TSInterfaceDeclaration: TS.TSInterfaceDeclaration
+  'TSInterfaceDeclaration:exit': TS.TSInterfaceDeclaration
+  TSInterfaceBody: TS.TSInterfaceBody
+  'TSInterfaceBody:exit': TS.TSInterfaceBody
+  TSInterfaceHeritage: TS.TSInterfaceHeritage
+  'TSInterfaceHeritage:exit': TS.TSInterfaceHeritage
+  TSIntersectionType: TS.TSIntersectionType
+  'TSIntersectionType:exit': TS.TSIntersectionType
+  TSLiteralType: TS.TSLiteralType
+  'TSLiteralType:exit': TS.TSLiteralType
+  TSMappedType: TS.TSMappedType
+  'TSMappedType:exit': TS.TSMappedType
+  TSMethodSignature: TS.TSMethodSignature
+  'TSMethodSignature:exit': TS.TSMethodSignature
+  TSModuleBlock: TS.TSModuleBlock
+  'TSModuleBlock:exit': TS.TSModuleBlock
+  TSModuleDeclaration: TS.TSModuleDeclaration
+  'TSModuleDeclaration:exit': TS.TSModuleDeclaration
+  TSNamespaceExportDeclaration: TS.TSNamespaceExportDeclaration
+  'TSNamespaceExportDeclaration:exit': TS.TSNamespaceExportDeclaration
+  TSNeverKeyword: TS.TSNeverKeyword
+  'TSNeverKeyword:exit': TS.TSNeverKeyword
+  TSNonNullExpression: TS.TSNonNullExpression
+  'TSNonNullExpression:exit': TS.TSNonNullExpression
+  TSNullKeyword: TS.TSNullKeyword
+  'TSNullKeyword:exit': TS.TSNullKeyword
+  TSNumberKeyword: TS.TSNumberKeyword
+  'TSNumberKeyword:exit': TS.TSNumberKeyword
+  TSObjectKeyword: TS.TSObjectKeyword
+  'TSObjectKeyword:exit': TS.TSObjectKeyword
+  TSOptionalType: TS.TSOptionalType
+  'TSOptionalType:exit': TS.TSOptionalType
+  TSParameterProperty: TS.TSParameterProperty
+  'TSParameterProperty:exit': TS.TSParameterProperty
+  TSParenthesizedType: TS.TSParenthesizedType
+  'TSParenthesizedType:exit': TS.TSParenthesizedType
+  TSPropertySignature: TS.TSPropertySignature
+  'TSPropertySignature:exit': TS.TSPropertySignature
+  TSPublicKeyword: TS.TSPublicKeyword
+  'TSPublicKeyword:exit': TS.TSPublicKeyword
+  TSPrivateKeyword: TS.TSPrivateKeyword
+  'TSPrivateKeyword:exit': TS.TSPrivateKeyword
+  TSProtectedKeyword: TS.TSProtectedKeyword
+  'TSProtectedKeyword:exit': TS.TSProtectedKeyword
+  TSQualifiedName: TS.TSQualifiedName
+  'TSQualifiedName:exit': TS.TSQualifiedName
+  TSReadonlyKeyword: TS.TSReadonlyKeyword
+  'TSReadonlyKeyword:exit': TS.TSReadonlyKeyword
+  TSRestType: TS.TSRestType
+  'TSRestType:exit': TS.TSRestType
+  TSStaticKeyword: TS.TSStaticKeyword
+  'TSStaticKeyword:exit': TS.TSStaticKeyword
+  TSStringKeyword: TS.TSStringKeyword
+  'TSStringKeyword:exit': TS.TSStringKeyword
+  TSSymbolKeyword: TS.TSSymbolKeyword
+  'TSSymbolKeyword:exit': TS.TSSymbolKeyword
+  TSThisType: TS.TSThisType
+  'TSThisType:exit': TS.TSThisType
+  TSTupleType: TS.TSTupleType
+  'TSTupleType:exit': TS.TSTupleType
+  TSTypeAliasDeclaration: TS.TSTypeAliasDeclaration
+  'TSTypeAliasDeclaration:exit': TS.TSTypeAliasDeclaration
+  TSTypeAnnotation: TS.TSTypeAnnotation
+  'TSTypeAnnotation:exit': TS.TSTypeAnnotation
+  TSTypeAssertion: TS.TSTypeAssertion
+  'TSTypeAssertion:exit': TS.TSTypeAssertion
+  TSTypeLiteral: TS.TSTypeLiteral
+  'TSTypeLiteral:exit': TS.TSTypeLiteral
+  TSTypeOperator: TS.TSTypeOperator
+  'TSTypeOperator:exit': TS.TSTypeOperator
+  TSTypeParameter: TS.TSTypeParameter
+  'TSTypeParameter:exit': TS.TSTypeParameter
+  TSTypeParameterDeclaration: TS.TSTypeParameterDeclaration
+  'TSTypeParameterDeclaration:exit': TS.TSTypeParameterDeclaration
+  TSTypeParameterInstantiation: TS.TSTypeParameterInstantiation
+  'TSTypeParameterInstantiation:exit': TS.TSTypeParameterInstantiation
+  TSTypePredicate: TS.TSTypePredicate
+  'TSTypePredicate:exit': TS.TSTypePredicate
+  TSTypeQuery: TS.TSTypeQuery
+  'TSTypeQuery:exit': TS.TSTypeQuery
+  TSTypeReference: TS.TSTypeReference
+  'TSTypeReference:exit': TS.TSTypeReference
+  TSUndefinedKeyword: TS.TSUndefinedKeyword
+  'TSUndefinedKeyword:exit': TS.TSUndefinedKeyword
+  TSUnionType: TS.TSUnionType
+  'TSUnionType:exit': TS.TSUnionType
+  TSUnknownKeyword: TS.TSUnknownKeyword
+  'TSUnknownKeyword:exit': TS.TSUnknownKeyword
+  TSVoidKeyword: TS.TSVoidKeyword
+  'TSVoidKeyword:exit': TS.TSVoidKeyword
 }
