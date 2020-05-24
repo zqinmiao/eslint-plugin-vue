@@ -63,15 +63,7 @@ if (deprecatedRules.length > 0) {
 }
 
 module.exports = {
-  configureWebpack (_config, _isServer) {
-    return {
-      resolve: {
-        alias: {
-          module: require.resolve('./shim/module')
-        }
-      }
-    }
-  },
+  configureWebpack: require('./webpack-config'),
 
   base: '/',
   title: 'eslint-plugin-vue',
@@ -100,7 +92,7 @@ module.exports = {
       { text: 'User Guide', link: '/user-guide/' },
       { text: 'Developer Guide', link: '/developer-guide/' },
       { text: 'Rules', link: '/rules/' },
-      { text: 'Demo', link: 'https://mysticatea.github.io/vue-eslint-demo' }
+      { text: 'Demo', link: '/Playground.html' }
     ],
 
     sidebar: {
@@ -114,7 +106,7 @@ module.exports = {
         ...extraCategories
       ],
 
-      '/': ['/', '/user-guide/', '/developer-guide/', '/rules/']
+      '/': ['/', '/user-guide/', '/developer-guide/', '/rules/', '/Playground.html']
     },
 
     algolia: {

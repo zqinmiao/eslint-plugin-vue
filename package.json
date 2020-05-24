@@ -70,6 +70,7 @@
     "lodash": "^4.17.15",
     "mocha": "^7.1.2",
     "nyc": "^15.0.1",
+    "raw-loader": "^4.0.1",
     "typescript": "^3.8.3",
     "vue-eslint-editor": "^1.1.0",
     "vuepress": "^1.4.1"
